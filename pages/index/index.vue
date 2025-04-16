@@ -1,75 +1,72 @@
 <template>
-	
 	<view class="content">
-		<wd-navbar >
-			  <template #title>
-			    <view class="search-box">
-			      <wd-search v-model="keyword" @search="change" hide-cancel placeholder-left></wd-search>
-			    </view>
-			  </template>
-		</wd-navbar>
-		<wd-button @click="click">{{title}}</wd-button>
 
 
+    <!-- 新增：根据activePage显示对应的页面内容 -->
+    <view v-if="activePage === 0">
+      <wd-navbar >
+        <template #title>
+          <view class="search-box">
+            <wd-search v-model="keyword" @search="change" hide-cancel placeholder-left></wd-search>
+          </view>
+        </template>
+      </wd-navbar>
+      <!-- 名册页面内容 -->
+    </view>
+    <view v-else-if="activePage === 2">
+      <!-- 反馈页面内容 -->
+    </view>
 	</view>
-  <BottomBar class="botton-bar"></BottomBar>
+  <BottomBar class="botton-bar" @page="handlePageChange"></BottomBar>
 </template>
 
 <script setup>
 	import BottomBar from "../../componets/bottom-bar/BottomBar.vue";
 	import { ref } from 'vue'
 	const keyword = ref("")
-	const title = ref("wei")
-	const click = () => title.value = "1"
+
+
 	const change = () => {
 		console.log(keyword.value)
 	}
+
+	// 新增：记录当前选中的页面索引
+	const activePage = ref(0);
+
+	// 新增：处理页面切换事件
+	const handlePageChange = (index) => {
+	  activePage.value = index;
+	};
 </script>
 
 <style scoped>
+	/* 修改：在content样式中添加padding-bottom以避免被底部栏遮挡 */
 
-	.search-box {
-	  display: flex;
-	  height: 100%;
-	  align-items: center;
-	  --wot-search-padding: 0;
-	  --wot-search-side-padding: 0;
-	  :deep() {
-	    .wd-search {
-	      background: transparent;
-	    }
-	  }
-	}
-	.botton-bar{
+  .search-box {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    --wot-search-padding: 0;
+    --wot-search-side-padding: 0;
+    :deep() {
+      .wd-search {
+        background: transparent;
+      }
+    }
+  }
+  .botton-bar{
     position: fixed;
-		bottom: 0;
-		width: 100%;
-		height: 100rpx;
-		margin-bottom: 0;
-	}
+    bottom: 0;
+    width: 100%;
+    height: 100rpx;
+    margin-bottom: 0;
+  }
 	.content {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
+		padding-bottom: 100rpx; /* 根据底部栏高度调整 */
 	}
 
-	.logo {
-		height: 200rpx;
-		width: 200rpx;
-		margin-top: 200rpx;
-		margin-left: auto;
-		margin-right: auto;
-		margin-bottom: 50rpx;
-	}
-
-	.text-area {
-		display: flex;
-		justify-content: center;
-	}
-
-	.title {
-		font-size: 36rpx;
-		color: #8f8f94;
-	}
 </style>
