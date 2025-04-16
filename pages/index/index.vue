@@ -4,6 +4,7 @@
 
     <!-- 新增：根据activePage显示对应的页面内容 -->
     <view v-if="activePage === 0">
+<!--      搜索框-->
       <wd-navbar >
         <template #title>
           <view class="search-box">
@@ -11,10 +12,10 @@
           </view>
         </template>
       </wd-navbar>
-      <!-- 名册页面内容 -->
+      <!-- TODO：名册页面内容 -->
     </view>
     <view v-else-if="activePage === 2">
-      <!-- 反馈页面内容 -->
+      <!-- TODO：反馈页面内容 -->
     </view>
 	</view>
   <BottomBar class="botton-bar" @page="handlePageChange"></BottomBar>
@@ -23,7 +24,7 @@
 <script setup>
 	import BottomBar from "../../componets/bottom-bar/BottomBar.vue";
 	import { ref } from 'vue'
-	const keyword = ref("")
+	const keyword = ref("")//TODO:搜索框绑定变量
 
 
 	const change = () => {
@@ -32,7 +33,7 @@
 
 	// 新增：记录当前选中的页面索引
 	const activePage = ref(0);
-
+//TODO:添加页面：支持
 	// 新增：处理页面切换事件
 	const handlePageChange = (index) => {
 	  activePage.value = index;
