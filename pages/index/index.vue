@@ -16,6 +16,7 @@
     </view>
     <view v-else-if="activePage === 2">
       <!-- TODO：反馈页面内容 -->
+      <feedback></feedback>
     </view>
 	</view>
   <BottomBar class="botton-bar" @page="handlePageChange"></BottomBar>
@@ -23,6 +24,7 @@
 
 <script setup>
 	import BottomBar from "../../componets/bottom-bar/BottomBar.vue";
+  import feedback from "../feedback/feedback.vue"
 	import { ref } from 'vue'
 	const keyword = ref("")//TODO:搜索框绑定变量
 
