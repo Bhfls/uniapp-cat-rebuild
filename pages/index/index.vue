@@ -12,7 +12,12 @@
           </view>
         </template>
       </wd-navbar>
+      <list :cats="catdata"></list>
       <!-- TODO：名册页面内容 -->
+    </view>
+    <view v-else-if="activePage === 1">
+      <!-- TODO：支持页面内容 -->
+      支持我们
     </view>
     <view v-else-if="activePage === 2">
       <!-- TODO：反馈页面内容 -->
@@ -25,7 +30,11 @@
 <script setup>
 	import BottomBar from "../../componets/bottom-bar/BottomBar.vue";
   import feedback from "../feedback/feedback.vue"
+  import index from "../list/list.vue"
 	import { ref } from 'vue'
+  import List from "../list/list.vue";
+  import { cats } from "../../data/data.js";
+  const catdata = ref(cats)
 	const keyword = ref("")//TODO:搜索框绑定变量
 
 

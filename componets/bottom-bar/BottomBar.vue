@@ -9,7 +9,7 @@
         </view>
       </wd-col>
 
-		  <wd-col :span="8"><view class="navbar-normal">支持我们</view></wd-col>
+		  <wd-col :span="8"><view class="navbar-normal" @click="handleItemClick(1)">支持我们<!--TODO:替换成动画--> </view></wd-col>
 
 
 
