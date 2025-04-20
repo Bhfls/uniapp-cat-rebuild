@@ -55,14 +55,14 @@
 		})
 
 	}
-	if (model.value.description === ''){
+	else if (model.value.description === ''){
         uni.showToast({
 			title: '请填写反馈说明',
 			icon: 'none'
-		})//FIXME:这个不会触发
+		})
 
 	}
-  if (model.value.contact === ''){
+  else if (model.value.contact === ''){
         uni.showModal({
 			title: '请填写联系方式',
 			icon: 'none'
@@ -74,6 +74,11 @@
       title: '提交成功',
       content: '感谢您的反馈，我们会尽快处理',
     })
+      model.value = {
+        feedbackType: '',
+        description: '',
+        contact: ''
+      }
     console.log(model.value)
 //TODO: 提交反馈到服务器
   }
@@ -83,8 +88,5 @@
 
 
 <style>
-.title{
-  margin-left: 20rpx;
-}
-	       
+
 </style>
