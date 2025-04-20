@@ -21,7 +21,7 @@ const props = defineProps({
   }
 },)
 const emit = defineEmits(['catClick'])
-const cradClick = (item) => {
+const cardClick = (item) => {
   console.log(item)
   emit('catClick',item)
 }
@@ -29,44 +29,43 @@ const cradClick = (item) => {
 
 <template>
 
-  <wd-row gutter="20" class="card-container">
-    <wd-col :span="12"><view class="card" @click="cradClick(1)">
-      <view class="cat-image"></view>
-<!--TODO:把图片加上，完善样式-->
-    </view></wd-col>
-    <wd-col :span="12"><view class="card" @click="cradClick(2)">span: 8</view></wd-col>
-    <wd-col :span="12"><view class="card" @click="cradClick(3)">span: 8</view></wd-col>
-  </wd-row>
-
-
+<view v-if="cats.length > 0" v-for="cat in cats" @click="cardClick(cat.id)">
+<view class="cat-info">
+  <wd-img :src="cat.image" round :height="40" :width="40"/>
+  <view class="cat-info-name">{{cat.name}}</view>
+</view>
+  <wd-divider></wd-divider>
+</view>
+<wd-divider v-else>没有找到结果</wd-divider>
+<!--<view v-else class="empty">
+<wd-text text="没有找到结果"></wd-text>
+</view>-->
 </template>
 
 <style scoped>
-.card-container {
+.cat-info-name{
+  margin-left: 20rpx;
 
-
-/*  background: antiquewhite;*/
+  font-size: 30rpx;
+  font-weight: bold;
+  margin-right: 20px;
+  color: #000000;
+/*  background: #b86363;*/
 }
 
-.card{
-  border-radius: 8px;
-  min-height: 30px;
-  text-align: center;
-  line-height: 30px;
-  font-size: 12px;
-  margin-bottom: 10px;
-  color: rgba(0, 0, 0, 0.45);
-  height: 200rpx;
+.cat-info{
   display: flex;
-  overflow: hidden;
- /* background: #999999;*/
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  width:100%;
+ /* background: #b86363;*/
+  align-items: center;
+  padding-left: 30rpx;
+}
+.empty{
+  display: flex;
+  justify-content:center;
+  margin-top: 20rpx;
+
 }
 
-.cat-image {
-  margin-top:0;
-  width: 100%;
-  height: 60%;
-  background: #cd1717;
-}
+
 </style>
