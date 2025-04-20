@@ -34,7 +34,7 @@
 
     <view v-else-if="activePage === 3" class="full-width-container">
       <!-- TODO：详细信息页面内容 -->
-      <detail :id="activeCat" @back="activePage=0;activeCat=null"></detail>
+      <detail :cat="activeCat" @back="activePage=0;activeCat=null"></detail>
     </view>
 
     <!---------------------------------------------------->
@@ -55,7 +55,7 @@ import { ref } from 'vue';
 import { cats } from "../../data/data.js";
 const fullCatData = cats
 const catData = ref(fullCatData)
-const keyword = ref("")//TODO:搜索框绑定变量
+const keyword = ref("")
 
 	const search = () => {
 		if (keyword.value === "") {
@@ -70,7 +70,7 @@ const keyword = ref("")//TODO:搜索框绑定变量
   const activeCat= ref(null);//记录当前选中的猫
   const catClick = (item) => {
     console.log(item,"from index")
-    activeCat.value = item
+    activeCat.value = fullCatData.find(cat => cat.id === item)
     activePage.value = 3
   }
 //TODO:添加页面：支持，详细信息
