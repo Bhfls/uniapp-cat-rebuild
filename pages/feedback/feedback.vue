@@ -27,6 +27,7 @@
           placeholder="请填写您的联系方式"
 
       />
+      <!--TODO:增加图片-->
     </wd-cell-group>
     <view class="footer">
       <wd-button type="primary" size="large" @click="handleSubmit" block>提交</wd-button>
@@ -58,7 +59,7 @@
         uni.showToast({
 			title: '请填写反馈说明',
 			icon: 'none'
-		})
+		})//FIXME:这个不会触发
 
 	}
   if (model.value.contact === ''){
@@ -87,4 +88,3 @@
 }
 	       
 </style>
-<!-- TODO: 反馈页面 -->
