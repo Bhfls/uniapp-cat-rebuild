@@ -14,38 +14,54 @@
  * @type {import('vue').PropType<CatItem[]> }
  */
 const props = defineProps({
-  cats:{
-    type: Array,
-    required: true,
-    validator(value, props) {
-      value.every(item =>
-        typeof item === 'object' &&
-        item.hasOwnProperty('id') && typeof item.id === 'number' &&
-        item.hasOwnProperty('name') && typeof item.name === 'string' && item.name.length > 0 &&
-        item.hasOwnProperty('color') && typeof item.color === 'string' && item.color.length > 0 &&
-        item.hasOwnProperty('description') && typeof item.description === 'string' && item.description.length > 0 &&
-        item.hasOwnProperty('color') && typeof item.color === 'string' && item.color.length > 0 &&
-        item.hasOwnProperty('image') && typeof item.image === 'string' && item.image.length > 0 &&
-        item.hasOwnProperty('state') && typeof item.state === 'string' && item.state.length > 0 &&
-        item.hasOwnProperty('isNeutered') && typeof item.isNeutered === 'boolean' &&
-        item.hasOwnProperty('frequentlyFrequentedLocations') && typeof item.frequentlyFrequentedLocations === 'string' && item.frequentlyFrequentedLocations.length > 0 &&
-        item.hasOwnProperty('isMale') && typeof item.isMale === 'boolean'
-      )
-    }
+  cats: {
+    type:Array,
+    required:true,
   }
-})
-import CatItem from "../../componets/bottom-bar/CatItem.vue";
+},)
+
 </script>
 
 <template>
-<view>
-  <view v-for="cat in cats" :key="cat.id">
-    <CatItem :cat="cat" :key="cat.id"></CatItem>
-  </view><!-- TODO: 展示页面 -->
-</view>
+
+  <wd-row gutter="20" class="card-container">
+    <wd-col :span="12"><view class="card">
+      <view class="cat-image"></view>
+<!--TODO:把图片加上，完善样式-->
+    </view></wd-col>
+    <wd-col :span="12"><view class="card">span: 8</view></wd-col>
+    <wd-col :span="12"><view class="card">span: 8</view></wd-col>
+  </wd-row>
+
 
 </template>
 
 <style scoped>
+.card-container {
 
+
+/*  background: antiquewhite;*/
+}
+
+.card{
+  border-radius: 8px;
+  min-height: 30px;
+  text-align: center;
+  line-height: 30px;
+  font-size: 12px;
+  margin-bottom: 10px;
+  color: rgba(0, 0, 0, 0.45);
+  height: 200rpx;
+  display: flex;
+  overflow: hidden;
+ /* background: #999999;*/
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.cat-image {
+  margin-top:0;
+  width: 100%;
+  height: 60%;
+  background: #cd1717;
+}
 </style>

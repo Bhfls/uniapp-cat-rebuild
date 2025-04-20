@@ -3,7 +3,7 @@
 
 
     <!-- 新增：根据activePage显示对应的页面内容 -->
-    <view v-if="activePage === 0">
+    <view v-if="activePage === 0" class="list">
 <!--      搜索框-->
       <wd-navbar >
         <template #title>
@@ -20,7 +20,7 @@
       支持我们
     </view>
     <view v-else-if="activePage === 2">
-      <!-- TODO：反馈页面内容 -->
+
       <feedback></feedback>
     </view>
 	</view>
@@ -44,7 +44,7 @@
 
 	// 新增：记录当前选中的页面索引
 	const activePage = ref(0);
-//TODO:添加页面：支持
+//TODO:添加页面：支持，详细信息
 	// 新增：处理页面切换事件
 	const handlePageChange = (index) => {
 	  activePage.value = index;
@@ -53,7 +53,10 @@
 
 <style scoped>
 	/* 修改：在content样式中添加padding-bottom以避免被底部栏遮挡 */
-
+.list{
+/*  background: #007aff;*/
+  width: 100%;
+}
   .search-box {
     display: flex;
     height: 100%;
@@ -79,6 +82,7 @@
 		align-items: center;
 		justify-content: center;
 		padding-bottom: 100rpx; /* 根据底部栏高度调整 */
+
 	}
 
 </style>
