@@ -27,7 +27,7 @@
           placeholder="请填写您的联系方式"
 
       />
-      <!--TODO:增加图片-->
+      <!--TODO: --next-gen 增加图片-->
     </wd-cell-group>
     <view class="footer">
       <wd-button type="primary" size="large" @click="handleSubmit" block>提交</wd-button>
@@ -63,7 +63,7 @@
 
 	}
   else if (model.value.contact === ''){
-        uni.showModal({
+        uni.showToast({
 			title: '请填写联系方式',
 			icon: 'none'
 		})

@@ -8,11 +8,11 @@
       <wd-navbar >
         <template #title>
           <view class="search-box">
-            <wd-search v-model="keyword" @search="search" hide-cancel placeholder-left></wd-search>
+            <wd-search v-model="keyword" @search="search" @clear="search" hide-cancel placeholder-left></wd-search>
           </view>
         </template>
       </wd-navbar>
-      <list :cats="catdata" @catClick="catClick"></list>
+      <list :cats="catData" @catClick="catClick"></list>
       <!-- TODO：名册页面内容 -->
     </view>
 
@@ -53,14 +53,16 @@ import support from "../support/support.vue";
 import { ref } from 'vue';
 
 import { cats } from "../../data/data.js";
-
-const catdata = ref(cats)
-	const keyword = ref("")//TODO:搜索框绑定变量
-
-
+const fullCatData = cats
+const catData = ref(fullCatData)
+const keyword = ref("")//TODO:搜索框绑定变量
 
 	const search = () => {
-		console.log(keyword.value)
+		if (keyword.value === "") {
+       catData.value = fullCatData
+		} else {
+			catData.value = fullCatData.filter(item => item.name.includes(keyword.value))
+    }
 	}
 
 	// 新增：记录当前选中的页面索引
@@ -83,6 +85,7 @@ const catdata = ref(cats)
 .full-width-container{
 /*  background: #007aff;*/
   width: 100%;
+
 }
   .search-box {
     display: flex;
