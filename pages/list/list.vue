@@ -13,24 +13,29 @@
  *
  * @type {import('vue').PropType<CatItem[]> }
  */
+
 const props = defineProps({
   cats: {
     type:Array,
     required:true,
   }
 },)
-
+const emit = defineEmits(['catClick'])
+const cradClick = (item) => {
+  console.log(item)
+  emit('catClick',item)
+}
 </script>
 
 <template>
 
   <wd-row gutter="20" class="card-container">
-    <wd-col :span="12"><view class="card">
+    <wd-col :span="12"><view class="card" @click="cradClick(1)">
       <view class="cat-image"></view>
 <!--TODO:把图片加上，完善样式-->
     </view></wd-col>
-    <wd-col :span="12"><view class="card">span: 8</view></wd-col>
-    <wd-col :span="12"><view class="card">span: 8</view></wd-col>
+    <wd-col :span="12"><view class="card" @click="cradClick(2)">span: 8</view></wd-col>
+    <wd-col :span="12"><view class="card" @click="cradClick(3)">span: 8</view></wd-col>
   </wd-row>
 
 
