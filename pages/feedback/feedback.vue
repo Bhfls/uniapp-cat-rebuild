@@ -27,7 +27,7 @@
           placeholder="请填写您的联系方式"
 
       />
-      <!--TODO: --next-gen 增加图片-->
+      <!--TODO: #nextgen 增加图片-->
     </wd-cell-group>
     <view class="footer">
       <wd-button type="primary" size="large" @click="handleSubmit" block>提交</wd-button>
@@ -83,7 +83,7 @@
 //TODO: 提交反馈到服务器
   }
 }
-  const content = ref('')
+
 </script>
 
 

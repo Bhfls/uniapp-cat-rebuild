@@ -13,7 +13,7 @@
         </template>
       </wd-navbar>
       <list :cats="catData" @catClick="catClick"></list>
-      <!-- TODO：名册页面内容 -->
+
     </view>
 
     <!--------------------------------------------------->
@@ -73,7 +73,7 @@ const keyword = ref("")
     activeCat.value = fullCatData.find(cat => cat.id === item)
     activePage.value = 3
   }
-//TODO:添加页面：支持，详细信息
+
 	// 新增：处理页面切换事件
 	const handlePageChange = (index) => {
 	  activePage.value = index;

@@ -4,7 +4,7 @@
 
 <template>
   <view class="support-container">
-<!--TODO:反馈页面,用v0的照抄-->
+<!--TODO:反馈页面,让大家商量-->
   </view>
 </template>
 
