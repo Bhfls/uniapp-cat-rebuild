@@ -31,7 +31,7 @@ const onChange = (e) => {
     <wd-col :span="12"><view class="detail-container attrib"><text class="attrib-name">性别：</text>{{cat.isMale?'公猫':'母猫'}}</view></wd-col>
     <wd-col :span="12"><view class="detail-container attrib"><text class="attrib-name">首次目击：</text>{{cat.first_seen}}</view></wd-col>
     <wd-col :span="12"><view class="detail-container attrib"><text class="attrib-name">常出现位置：</text>{{cat.frequentlyFrequentedLocations}}</view></wd-col>
-<!--TODO:优化布局-->
+
 
   </wd-row>
 </template>

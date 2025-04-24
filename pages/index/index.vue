@@ -19,8 +19,7 @@
     <!--------------------------------------------------->
 
     <view v-else-if="activePage === 1" class="full-width-container">
-      <!-- TODO：支持页面内容 -->
-      <support></support>
+       <support></support>
     </view>
 
     <!--------------------------------------------------->
@@ -33,7 +32,6 @@
     <!---------------------------------------------------->
 
     <view v-else-if="activePage === 3" class="full-width-container">
-      <!-- TODO：详细信息页面内容 -->
       <detail :cat="activeCat" @back="activePage=0;activeCat=null"></detail>
     </view>
 
